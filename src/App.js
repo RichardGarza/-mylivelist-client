@@ -1,35 +1,30 @@
-import { Component } from "react";
-import React from "react";
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import "./App.css";
-import axios from "axios";
-const server = "https://my-live-list-server.herokuapp.com";
+import Homepage from "./Components/Homepage";
+import Navbar from "./Components/Navbar";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      names: [{ name: "None Added Yet" }]
-    };
+    this.state = {};
   }
 
   componentDidMount() {
-    axios
-      .get(`${server}/home`)
-      .then(response => {
-        const names = response.data;
-        this.setState({ names });
-        console.log("WORKED!", response);
-      })
-      .catch(err => {
-        console.log("Shit", err);
-      });
+    console.log("Homepage Mounted...");
   }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <span>{this.state.names[0].name}</span>
-        </header>
+        <Navbar />
+
+        <Route className="content" exact path="/" component={Homepage} />
+
+        {/* <Route className="content" path="/login" component={Login} />
+
+        <Route className="album" path="/userhome" component={Userhome} />
+
+        <Route className="album" path="/store" component={StoreList} /> */}
       </div>
     );
   }
