@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import React from "react";
+import "./App.css";
+import axios from "axios";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      names: [{ name: "None Added Yet" }]
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("/home")
+      .then(response => {
+        const names = response.data;
+        this.setState({ names });
+        console.log("WORKED!", response);
+      })
+      .catch(err => {
+        console.log("Shit", err);
+      });
+  }
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <span>{this.state.names[0].name}</span>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
