@@ -13,7 +13,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("/home")
+      .get("https://my-live-list-server.herokuapp.com/home")
       .then(response => {
         const names = response.data;
         this.setState({ names });
