@@ -2,6 +2,7 @@ import { Component } from "react";
 import React from "react";
 import "./App.css";
 import axios from "axios";
+const server = "https://my-live-list-server.herokuapp.com";
 
 class App extends Component {
   constructor() {
@@ -13,7 +14,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get("https://my-live-list-server.herokuapp.com/home")
+      .get(`${server}/home`)
       .then(response => {
         const names = response.data;
         this.setState({ names });
