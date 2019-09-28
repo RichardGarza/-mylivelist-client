@@ -21,36 +21,36 @@ class Navbar extends Component {
   // }
   render() {
     return (
-      <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">
+      <nav className="navbar navbar-dark bg-dark">
+        <a className="navbar-brand" href="/">
           MyLiveList
         </a>
 
-        <ul class="navbar-nav mr-auto d-flex flex-row justify-content-end">
-          <li class="nav-item active p-2">
-            <a class="nav-link" href="/">
+        <ul className="navbar-nav mr-auto d-flex flex-row justify-content-end">
+          <li className="nav-item active p-2">
+            <a className="nav-link" href="/">
               Home
             </a>
           </li>
-          <li class="nav-item p-2">
-            <a class="nav-link" href="#">
+          <li className="nav-item p-2">
+            <a className="nav-link" href="#">
               How It Works
             </a>
           </li>
-          <li class="nav-item p-2">
-            <a class="nav-link" href="#">
+          <li className="nav-item p-2">
+            <a className="nav-link" href="#">
               About
             </a>
           </li>
         </ul>
-        <ul class="navbar-nav ml-auto d-flex flex-row justify-content-end">
-          <li class="nav-item p-2">
-            <a class="nav-link" href="#">
+        <ul className="navbar-nav ml-auto d-flex flex-row justify-content-end">
+          <li className="nav-item p-2">
+            <a className="nav-link" href="/login">
               Login
             </a>
           </li>
-          <li class="nav-item p-2">
-            <a class="nav-link" href="#">
+          <li className="nav-item p-2">
+            <a className="nav-link" href="#">
               Sign Up
             </a>
           </li>

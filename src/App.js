@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import Homepage from "./Components/Homepage";
+import Loginpage from "./Components/Loginpage";
 import Navbar from "./Components/Navbar";
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
         <Navbar />
 
         <Route className="content" exact path="/" component={Homepage} />
+        <Route className="content" exact path="/login" component={Loginpage} />
 
         {/* <Route className="content" path="/login" component={Login} />
 
