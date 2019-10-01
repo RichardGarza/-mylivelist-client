@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 const server = "https://my-live-list-server.herokuapp.com";
 
-class Loginpage extends Component {
+class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -111,4 +111,4 @@ class Loginpage extends Component {
   }
 }
 
-export default Loginpage;
+export default LoginPage;
