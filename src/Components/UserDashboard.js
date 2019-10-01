@@ -1,5 +1,6 @@
 import { Component } from "react";
 import React from "react";
+import StorePage from "./StorePage";
 
 class UserDashboard extends Component {
   render() {
@@ -7,8 +8,13 @@ class UserDashboard extends Component {
       <div>
         <h3>MyLiveList.</h3>
         <h6>USER DASHBOARD</h6>
-
-        <p>Here is my about section....</p>
+        <br />
+        <StorePage
+          stores={this.props.stores}
+          changeLoadingStatus={this.props.changeLoadingStatus}
+          setStores={this.props.setStores}
+          userId={this.props.userId}
+        />
       </div>
     );
   }

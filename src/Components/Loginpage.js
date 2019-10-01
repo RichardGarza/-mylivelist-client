@@ -27,13 +27,16 @@ class LoginPage extends Component {
       email: this.state.email,
       password: this.state.password
     };
-
+    this.props.changeLoadingStatus();
+    console.log("RAN");
     axios({
       method: "post",
       url: "https://my-live-list-server.herokuapp.com/login",
       data: userCredentials
     })
       .then(result => {
+        this.props.changeLoadingStatus();
+        console.log("Running...");
         if (result.data.authenticated !== false) {
           this.props.signIn(result.data.userId);
         } else {

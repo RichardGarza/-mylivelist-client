@@ -20,7 +20,31 @@ class SignUpPage extends Component {
     this.setState({ password: e.target.value });
   }
 
-  handleSubmit(event) {}
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const userCredentials = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.changeLoadingStatus();
+    axios({
+      method: "post",
+      url: "https://my-live-list-server.herokuapp.com/users",
+      data: userCredentials
+    })
+      .then(result => {
+        this.props.changeLoadingStatus();
+        if (result.data.authenticated !== false) {
+          this.props.signIn(result.data.userId);
+        } else {
+          this.props.setError("Email Already Registered, Try Signing In!");
+        }
+      })
+      .catch(err => {
+        console.log("Login Err", err);
+      });
+  };
 
   componentDidMount() {
     axios
