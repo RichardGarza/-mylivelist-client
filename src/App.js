@@ -1,32 +1,50 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
 import "./App.css";
-import Homepage from "./Components/Homepage";
-import Loginpage from "./Components/Loginpage";
+import Body from "./Components/Body";
 import Navbar from "./Components/Navbar";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      signedIn: false,
+      userId: undefined,
+      activePage: "homePage"
+    };
+  }
+
+  setActivePage = activePage => {
+    this.setState({ activePage });
+  };
+
+  signIn = userId => {
+    this.setState({ signedIn: true, userId });
+  };
+
+  signOut() {
+    this.setState({
+      signedIn: false,
+      userId: undefined
+    });
   }
 
   componentDidMount() {
-    console.log("Homepage Mounted...");
+    console.log("App Mounted...");
   }
+
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar
+          activePage={this.state.activePage}
+          setActivePage={this.setActivePage}
+        />
 
-        <Route className="content" exact path="/" component={Homepage} />
-        <Route className="content" exact path="/login" component={Loginpage} />
-
-        {/* <Route className="content" path="/login" component={Login} />
-
-        <Route className="album" path="/userhome" component={Userhome} />
-
-        <Route className="album" path="/store" component={StoreList} /> */}
+        <Body
+          signIn={this.signIn}
+          activePage={this.state.activePage}
+          setActivePage={this.setActivePage}
+        />
       </div>
     );
   }

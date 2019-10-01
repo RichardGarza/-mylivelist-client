@@ -3,9 +3,9 @@ import React from "react";
 import axios from "axios";
 const server = "https://my-live-list-server.herokuapp.com";
 
-class Loginpage extends Component {
-  constructor(props) {
-    super(props);
+class SignUpPage extends Component {
+  constructor() {
+    super();
     this.state = {
       email: "",
       password: ""
@@ -20,30 +20,7 @@ class Loginpage extends Component {
     this.setState({ password: e.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-
-    const userCredentials = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    axios({
-      method: "post",
-      url: "https://my-live-list-server.herokuapp.com/login",
-      data: userCredentials
-    })
-      .then(result => {
-        if (result.data.authenticated !== false) {
-          this.props.signIn(result.data.userId);
-        } else {
-          console.log("Email Already Registered, Try Signing In!");
-        }
-      })
-      .catch(err => {
-        console.log("Login Err", err);
-      });
-  }
+  handleSubmit(event) {}
 
   componentDidMount() {
     axios
@@ -61,7 +38,7 @@ class Loginpage extends Component {
       <div>
         <form>
           <fieldset>
-            <legend>Login</legend>
+            <legend>Sign Up</legend>
             <div className="form-group row">
               <label htmlFor="email" className="col-sm-2 col-form-label">
                 Email:
@@ -103,7 +80,7 @@ class Loginpage extends Component {
                 </small>
               </div>
             </div>
-            <button onClick={this.handleSubmit.bind(this)}>Login</button>
+            <button onClick={this.handleSubmit.bind(this)}>Sign Up</button>
           </fieldset>
         </form>
       </div>
@@ -111,4 +88,4 @@ class Loginpage extends Component {
   }
 }
 
-export default Loginpage;
+export default SignUpPage;
