@@ -1,7 +1,7 @@
 import { Component } from "react";
 import React from "react";
-import LoginPage from "./LoginPage";
 import Homepage from "./Homepage";
+import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
 import AboutPage from "./AboutPage";
 import HowToPage from "./HowToPage";
