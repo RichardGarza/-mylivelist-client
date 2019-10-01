@@ -43,7 +43,10 @@ class Body extends Component {
           renderHowToPage={this.renderHowToPage}
         />
       );
-    } else if (this.props.activePage === "homePage") {
+    } else if (
+      this.props.activePage === "homePage" &&
+      this.props.signedIn === true
+    ) {
       return (
         <Homepage
           renderHomePage={this.renderHomePage}
@@ -53,7 +56,10 @@ class Body extends Component {
           renderHowToPage={this.renderHowToPage}
         />
       );
-    } else if (this.props.activePage === "aboutPage") {
+    } else if (
+      this.props.activePage === "aboutPage" &&
+      this.props.signedIn === true
+    ) {
       return (
         <AboutPage
           renderHomePage={this.renderHomePage}
@@ -63,7 +69,10 @@ class Body extends Component {
           renderHowToPage={this.renderHowToPage}
         />
       );
-    } else if (this.props.activePage === "howToPage") {
+    } else if (
+      this.props.activePage === "howToPage" &&
+      this.props.signedIn === true
+    ) {
       return (
         <HowToPage
           renderHomePage={this.renderHomePage}
@@ -73,10 +82,7 @@ class Body extends Component {
           renderHowToPage={this.renderHowToPage}
         />
       );
-    } else if (
-      this.props.signedIn === true &&
-      this.props.activePage === "UserDashboard"
-    ) {
+    } else if (this.props.signedIn === true) {
       return (
         <UserDashboard
           renderHomePage={this.renderHomePage}
